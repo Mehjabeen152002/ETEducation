@@ -5,22 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ETE Department Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Ensures Tailwind is loaded -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
-     <!-- Navbar -->
-    <nav class="bg-violet-700 text-white p-4 flex justify-between items-center shadow-md">
-        <h1 class="text-lg font-bold text-white">ETE Department Portal</h1>
-        <div class="space-x-6">
-            <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
-            <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
-            <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
-            <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
-            <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
-            <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+    <!-- Navbar -->
+    <nav class="bg-violet-700 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-lg font-bold">ETE Department Portal</h1>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <div id="menu" class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
+                <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
+                <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
+                <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
+                <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
+                <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col bg-violet-700 p-4 space-y-2">
+            <a href="index.html" class="text-white hover:text-gray-300">Home</a>
+            <a href="about.html" class="text-white hover:text-gray-300">About</a>
+            <a href="courses.html" class="text-white hover:text-gray-300">Courses</a>
+            <a href="Ask questions.html" class="text-white hover:text-gray-300">Ask Questions</a>
+            <a href="contact.html" class="text-white hover:text-gray-300">Contact</a>
+            <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold text-center">Login</a>
         </div>
     </nav>
+
     <!-- Main Content Wrapper -->
     <main class="flex-grow">
         <!-- Hero Section -->
@@ -35,7 +52,7 @@
         </header>
 
         <!-- Features Section -->
-        <section class="flex justify-center gap-8 p-10">
+        <section class="flex flex-wrap justify-center gap-8 p-10">
             <div class="w-80 text-center p-6 bg-white shadow-lg rounded-lg">
                 <img src="https://img.icons8.com/ios/50/book.png" class="mx-auto mb-4" alt="Book Icon" />
                 <h3 class="text-lg font-semibold text-violet-700">Course Materials</h3>
@@ -60,6 +77,13 @@
     <footer class="bg-violet-700 text-white text-center py-6 mt-auto">
         <p>&copy; 2025 ETE Department | Rajshahi University of Engineering & Technology</p>
     </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
 </body>
 
 </html>
