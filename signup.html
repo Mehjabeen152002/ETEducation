@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | ETE Department Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Sign Up Card -->
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h2 class="text-3xl font-bold text-center text-violet-700">Sign Up</h2>
+        <p class="text-gray-600 text-center mt-2">Create a new account</p>
+
+        <!-- Sign Up Form -->
+        <form class="mt-6" onsubmit="return validateSignupForm()">
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium">Full Name</label>
+                <input type="text" id="fullname"
+                    class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium">Email</label>
+                <input type="email" id="signup-email"
+                    class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-4 relative">
+                <label class="block text-gray-700 font-medium">Password</label>
+                <input type="password" id="signup-password"
+                    class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Enter your password" required>
+                <button type="button" onclick="toggleSignupPassword()" class="absolute top-10 right-3 text-gray-600">
+                    👁
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium">Confirm Password</label>
+                <input type="password" id="confirm-password"
+                    class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Confirm your password" required>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800 transition duration-300">
+                Sign Up
+            </button>
+        </form>
+
+        <p class="text-center text-gray-600 mt-4">Already have an account?
+            <a href="login.html" class="text-indigo-600 hover:underline">Login</a>
+        </p>
+    </div>
+
+    <!-- JavaScript for Validation & Show Password -->
+    <script>
+        function validateSignupForm() {
+            var fullname = document.getElementById("fullname").value;
+            var email = document.getElementById("signup-email").value;
+            var password = document.getElementById("signup-password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+
+            if (fullname.trim() === "" || email.trim() === "" || password.trim() === "" || confirmPassword.trim() === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function toggleSignupPassword() {
+            var passwordField = document.getElementById("signup-password");
+            var confirmPasswordField = document.getElementById("confirm-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+            } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

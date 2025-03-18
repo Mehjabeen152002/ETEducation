@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETE Department Portal - Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+   <!-- Navbar -->
+   <nav class="bg-violet-700 text-white p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-lg font-bold text-white">ETE Department Portal</h1>
+    <div class="space-x-6">
+        <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
+        <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
+        <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
+        <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
+        <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
+        <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+    </div>
+</nav>
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow">
+        <!-- Course Materials -->
+        <section class="text-center py-16">
+            <h2 class="text-4xl font-bold">Course Materials</h2>
+            <p class="text-gray-600 mt-2">Access resources for all semesters</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 mx-10">
+                <!-- Semester buttons -->
+                <script>
+                    let semesters = [
+                        { id: "1-1", name: "First Year - First Semester" },
+                        { id: "1-2", name: "First Year - Second Semester" },
+                        { id: "2-1", name: "Second Year - First Semester" },
+                        { id: "2-2", name: "Second Year - Second Semester" },
+                        { id: "3-1", name: "Third Year - First Semester" },
+                        { id: "3-2", name: "Third Year - Second Semester" },
+                        { id: "4-1", name: "Fourth Year - First Semester" },
+                        { id: "4-2", name: "Fourth Year - Second Semester" }
+                    ];
+
+                    semesters.forEach(semester => {
+                        document.write(`
+                            <a href="semester_${semester.id}.html" class="block p-6 bg-white rounded-lg shadow-lg text-center hover:bg-gray-200">
+                                <img src="https://img.icons8.com/ios/50/book.png" class="mx-auto mb-2 text-violet-700" alt="Book Icon" style="filter: invert(16%) sepia(96%) saturate(721%) hue-rotate(248deg) brightness(95%) contrast(95%);"/>
+                                <h3 class="text-lg font-semibold text-violet-700">Semester ${semester.id}</h3>
+                                <p class="text-gray-600">${semester.name}</p>
+                            </a>
+                        `);
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-violet-700 text-white text-center py-6 mt-auto">
+        <p>&copy; 2025 ETE Department | Rajshahi University of Engineering & Technology</p>
+    </footer>
+
+</body>
+
+</html>

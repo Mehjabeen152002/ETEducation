@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-violet-700 text-white p-4 flex justify-between items-center shadow-md">
+        <h1 class="text-lg font-bold text-white">ETE Department Portal</h1>
+        <div class="space-x-6">
+            <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
+            <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
+            <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
+            <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
+            <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
+            <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+        </div>
+    </nav>
+    <!-- Resource Section -->
+    <section class="flex-grow py-10">
+        <div class="container mx-auto text-center">
+            <h2 id="resource-title" class="text-3xl font-bold text-violet-700">Resource Title</h2>
+            <p class="text-gray-600 mt-2 text-base">Click on the links to access resources</p>
+        </div>
+
+        <div class="mt-6 px-6 max-w-3xl mx-auto">
+            <ul id="resource-list" class="space-y-3 bg-white shadow-lg rounded-lg p-5 border border-gray-200">
+                <!-- Dynamic Resource Links will be inserted here -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-violet-700 text-white text-center py-6 mt-auto">
+        <p>&copy; 2025 ETE Department | Rajshahi University of Engineering & Technology</p>
+    </footer>
+
+    <script>
+        // Get the section from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section');
+
+        // Define resource data
+        const resources = {
+            syllabus: {
+                title: "Syllabus",
+                links: [
+                    { name: "Syllabus 2023", url: "https://drive.google.com/file/d/EXAMPLE1/view" },
+                    { name: "Syllabus 2024", url: "https://drive.google.com/file/d/EXAMPLE2/view" }
+                ]
+            },
+            book_pdf: {
+                title: "Book PDFs",
+                links: [
+                    { name: "Digital Electronics", url: "https://drive.google.com/file/d/EXAMPLE3/view" },
+                    { name: "Data Structures Book", url: "https://drive.google.com/file/d/EXAMPLE4/view" }
+                ]
+            },
+            previous_questions: {
+                title: "Previous Year Questions",
+                links: [
+                    { name: "2021 Question Paper", url: "https://drive.google.com/file/d/EXAMPLE5/view" },
+                    { name: "2022 Question Paper", url: "https://drive.google.com/file/d/EXAMPLE6/view" }
+                ]
+            }
+        };
+
+        // Populate the page based on section
+        if (resources[section]) {
+            document.getElementById("resource-title").innerText = resources[section].title;
+            const list = document.getElementById("resource-list");
+            resources[section].links.forEach(resource => {
+                let listItem = document.createElement("li");
+                listItem.className = "p-3 border-b border-gray-200";
+                listItem.innerHTML = `<a href="${resource.url}" target="_blank" class="text-sm font-semibold text-indigo-700 hover:underline">${resource.name}</a>`;
+                list.appendChild(listItem);
+            });
+        } else {
+            document.getElementById("resource-title").innerText = "Resource Not Found";
+        }
+    </script>
+</body>
+
+</html>

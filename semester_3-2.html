@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-violet-700 text-white p-4 flex justify-between items-center shadow-md">
+        <h1 class="text-lg font-bold text-white">ETE Department Portal</h1>
+        <div class="space-x-6">
+            <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
+            <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
+            <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
+            <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
+            <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
+            <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+        </div>
+    </nav>
+
+    <!-- Mandatory Courses Section -->
+    <section class="py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-violet-700">Mandatory Courses</h2>
+            <p class="text-gray-600 mt-2 text-base">These courses are required for this semester</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 px-6 max-w-5xl mx-auto">
+            <script>
+                let mandatoryCourses = [
+                    { name: "Fibre Optics Communication", icon: "💡", id: "fibre_optics" },
+                    { name: "Antennas and Propagation", icon: "📡", id: "antennas_propagation" },
+                    { name: "Digital Signal Processing", icon: "📶", id: "digital_signal_processing" },
+                    { name: "Information Theory", icon: "📑", id: "information_theory" }
+                ];
+                mandatoryCourses.forEach(course => {
+                    document.write(`
+                        <a href="${course.id}.html"
+                            class="block bg-white p-4 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transform hover:scale-105 transition duration-300 flex items-center space-x-4">
+                            <span class="text-xl">${course.icon}</span>
+                            <span class="text-sm font-semibold">${course.name}</span>
+                        </a>
+                    `);
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- Optional Courses Section -->
+    <section class="py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-violet-700">Optional Courses</h2>
+            <p class="text-gray-600 mt-2 text-base">Choose from the following optional courses</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 px-6 max-w-5xl mx-auto">
+            <script>
+                let optionalCourses = [
+                    { name: "Digital Image Processing", icon: "🖼️", id: "digital_image_processing" },
+                    { name: "Renewable Energy", icon: "⚡", id: "renewable_energy" },
+                    { name: "Measurement,Instrumentation and Sensor Application", icon: "🛰️", id: "sensor_application" }
+                ];
+                optionalCourses.forEach(course => {
+                    document.write(`
+                        <a href="${course.id}.html"
+                            class="block bg-white p-4 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transform hover:scale-105 transition duration-300 flex items-center space-x-4">
+                            <span class="text-xl">${course.icon}</span>
+                            <span class="text-sm font-semibold">${course.name}</span>
+                        </a>
+                    `);
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- Required Software Section -->
+    <section class="py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-violet-700">Required Software</h2>
+            <p class="text-gray-600 mt-2 text-base">Ensure you have the necessary software installed for this semester</p>
+        </div>
+        <div class="mt-8 bg-white shadow-lg rounded-lg p-5 max-w-3xl mx-auto border border-gray-200">
+            <ul class="space-y-3">
+                <!-- MATLAB -->
+                <li class="flex items-center space-x-4 p-3 border-b border-gray-200">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" class="w-6 h-6" alt="MATLAB">
+                    <a href="https://www.mathworks.com/products/matlab.html" class="text-sm font-semibold text-indigo-700 hover:underline" target="_blank">
+                        MATLAB (For Signal Processing and Mathematics)
+                    </a>
+                </li>
+                <!-- CST -->
+                <li class="flex items-center space-x-4 p-3 border-b border-gray-200">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/CST_logo.png" class="w-6 h-6" alt="CST">
+                    <a href="https://www.cst.com/" class="text-sm font-semibold text-indigo-700 hover:underline" target="_blank">
+                        CST Studio Suite (For EM Simulation)
+                    </a>
+                </li>
+                <!-- Console -->
+                <li class="flex items-center space-x-4 p-3 border-b border-gray-200">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Windows_PowerShell_logo.png" class="w-6 h-6" alt="Console">
+                    <a href="https://docs.microsoft.com/en-us/powershell/" class="text-sm font-semibold text-indigo-700 hover:underline" target="_blank">
+                        Console (For Command Line Operations)
+                    </a>
+                </li>
+                <!-- SCAPS -->
+                <li class="flex items-center space-x-4 p-3 border-b border-gray-200">
+                    <img src="https://www.scaps.org/wp-content/uploads/2021/11/scaps-logo.png" class="w-6 h-6" alt="SCAPS">
+                    <a href="https://www.scaps.org/" class="text-sm font-semibold text-indigo-700 hover:underline" target="_blank">
+                        SCAPS (For Solar Cell Simulation)
+                    </a>
+                </li>
+                <!-- Humor -->
+                <li class="flex items-center space-x-4 p-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Humor_logo.png" class="w-6 h-6" alt="Humor">
+                    <a href="https://www.humor.com/" class="text-sm font-semibold text-indigo-700 hover:underline" target="_blank">
+                        Humor (For Fun and Relaxation)
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-violet-700 text-white text-center py-6 mt-auto">
+        <p>&copy; 2025 ETE Department | Rajshahi University of Engineering & Technology</p>
+    </footer>
+</body>
+
+</html>
