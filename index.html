@@ -4,46 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETE Department Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title id="dynamic-title">ETEducation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Ensures Tailwind is loaded -->
+    <style>
+        /* Animation for dynamic title */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .dynamic-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f5f2f8; /* Violet color */
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .dynamic-title span {
+            color: #efd8e0; /* Pink color */
+        }
+    </style>
+    <script>
+        // JavaScript to set the dynamic title
+        function updateWebsiteName() {
+            const websiteName = "ETEducation"; // Website Name
+            document.getElementById("dynamic-title").innerText = websiteName; // Update dynamic name
+        }
+
+        // Run the function on page load
+        window.onload = updateWebsiteName;
+    </script>
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-violet-700 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-lg font-bold">ETE Department Portal</h1>
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+    <nav class="bg-violet-700 text-white p-4 flex justify-between items-center shadow-md w-full">
+        <div class="flex items-center space-x-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1765/1765425.png" alt="ETEducation Logo" class="w-10 h-10" /> <!-- Logo -->
+            <h1 id="dynamic-title" class="dynamic-title">ETEducation</h1> <!-- Dynamic Website Name with style -->
+        </div>
+        <!-- Responsive Navigation -->
+        <div class="space-x-6 hidden md:flex">
+            <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
+            <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
+            <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
+            <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
+            <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
+            <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+        </div>
+        <!-- Mobile Menu Toggle (Hamburger) -->
+        <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
-            <div id="menu" class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
-                <a href="about.html" class="text-white hover:text-gray-300 font-medium">About</a>
-                <a href="courses.html" class="text-white hover:text-gray-300 font-medium">Courses</a>
-                <a href="Ask questions.html" class="text-white hover:text-gray-300 font-medium">Ask Questions</a>
-                <a href="contact.html" class="text-white hover:text-gray-300 font-medium">Contact</a>
-                <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden flex flex-col bg-violet-700 p-4 space-y-2">
-            <a href="index.html" class="text-white hover:text-gray-300">Home</a>
-            <a href="about.html" class="text-white hover:text-gray-300">About</a>
-            <a href="courses.html" class="text-white hover:text-gray-300">Courses</a>
-            <a href="Ask questions.html" class="text-white hover:text-gray-300">Ask Questions</a>
-            <a href="contact.html" class="text-white hover:text-gray-300">Contact</a>
-            <a href="login.html" class="bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold text-center">Login</a>
         </div>
     </nav>
+
+    <!-- Mobile Menu (Initially Hidden) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-violet-700 text-white text-center space-y-4 p-4">
+        <a href="index.html" class="block hover:text-gray-300 font-medium">Home</a>
+        <a href="about.html" class="block hover:text-gray-300 font-medium">About</a>
+        <a href="courses.html" class="block hover:text-gray-300 font-medium">Courses</a>
+        <a href="Ask questions.html" class="block hover:text-gray-300 font-medium">Ask Questions</a>
+        <a href="contact.html" class="block hover:text-gray-300 font-medium">Contact</a>
+        <a href="login.html" class="block bg-white text-violet-700 px-4 py-2 rounded hover:bg-gray-200 font-semibold">Login</a>
+    </div>
 
     <!-- Main Content Wrapper -->
     <main class="flex-grow">
         <!-- Hero Section -->
         <header class="text-center py-16 bg-white shadow-md">
             <h2 class="text-4xl font-bold">
-                Welcome to the <span class="text-violet-700">ETE Department Portal</span>
+                <span class="text-black">Welcome to the </span><span class="text-violet-700">ETEducation Portal</span>
             </h2>
             <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
                 Access course materials, connect with peers, and find answers to your questions. Your
@@ -52,7 +87,7 @@
         </header>
 
         <!-- Features Section -->
-        <section class="flex flex-wrap justify-center gap-8 p-10">
+        <section class="flex justify-center gap-8 p-10">
             <div class="w-80 text-center p-6 bg-white shadow-lg rounded-lg">
                 <img src="https://img.icons8.com/ios/50/book.png" class="mx-auto mb-4" alt="Book Icon" />
                 <h3 class="text-lg font-semibold text-violet-700">Course Materials</h3>
@@ -75,13 +110,16 @@
 
     <!-- Footer -->
     <footer class="bg-violet-700 text-white text-center py-6 mt-auto">
-        <p>&copy; 2025 ETE Department | Rajshahi University of Engineering & Technology</p>
+        <p>&copy; 2025 ETEducation | Rajshahi University of Engineering & Technology</p>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
     <script>
-        document.getElementById("menu-btn").addEventListener("click", function() {
-            document.getElementById("mobile-menu").classList.toggle("hidden");
+        // Toggle mobile menu visibility
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
